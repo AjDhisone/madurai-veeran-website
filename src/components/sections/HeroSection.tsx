@@ -1,9 +1,7 @@
 import ConsultationForm from '../ConsultationForm';
 
 const heroImages = [
-  { src: '/imgs/madurai%201.jpg', origin: 'left' },
-  { src: '/imgs/madurai%202.jpg', origin: 'center' },
-  { src: '/imgs/madurai%203.jpg', origin: 'left' },
+  { src: '/imgs/madurai%202.jpg', mobileSrc: '/imgs/m%20mobile.jpg', origin: 'center' },
 ];
 
 export default function HeroSection() {
@@ -21,42 +19,10 @@ export default function HeroSection() {
                 </div>
                 <div className="home_hero-text">
                   <div className="home_hero-content-caption">
-                    <p className="caption_small">
-                      TAMIL FINANCIAL
-                      <br />
-                      LITERACY ADVOCATE
-                    </p>
-                  </div>
-                  <div className="home_hero-content-caption">
-                    <p className="caption_small">
-                      INVESTOR &amp; WEALTH
-                      <br />
-                      DISCIPLINE MENTOR
-                    </p>
-                  </div>
-                  <div className="home_hero-content-caption">
-                    <p className="caption_small">
-                      Chennai
-                      <br />
-                      Tamil&nbsp;Nadu
-                    </p>
-                  </div>
-                  <div className="home_hero-content-caption">
-                    <p className="caption_small">
-                      WORLDWIDE
-                      <br />
-                      TAMIL COMMUNITY
-                    </p>
+                    <p className="caption_small">Investor and investment educator</p>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="home_hero-snippet">
-            <div className="caption_small">
-              STARTED WITH SMALL SAVINGS. BUILT WEALTH WITH DISCIPLINE.
-              <br />
-              NOW TEACHING FINANCIAL FREEDOM.
             </div>
           </div>
         </div>
@@ -70,15 +36,20 @@ export default function HeroSection() {
               {heroImages.map((img, i) => (
                 <div key={i} role="listitem" className="swiper-slide is-home-hero w-dyn-item">
                   <div className="home_hero-gallery">
-                    <img
-                      className="home_slider-image"
-                      src={img.src}
-                      data-swiper-parallax-scale="1.2"
-                      origin-point={img.origin}
-                      alt=""
-                      data-swiper-parallax-x="30%"
-                      loading="eager"
-                    />
+                    <picture>
+                      {img.mobileSrc ? (
+                        <source media="(max-width: 767px)" srcSet={img.mobileSrc} />
+                      ) : null}
+                      <img
+                        className="home_slider-image"
+                        src={img.src}
+                        data-swiper-parallax-scale="1.2"
+                        origin-point={img.origin}
+                        alt=""
+                        data-swiper-parallax-x="30%"
+                        loading="eager"
+                      />
+                    </picture>
                   </div>
                 </div>
               ))}

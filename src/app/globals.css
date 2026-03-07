@@ -159,6 +159,169 @@ body {
   display: none !important;
 }
 
+@media only screen and (min-width: 768px) {
+  .home_hero-slider {
+    inset: 0;
+    width: 100%;
+    height: 100svh;
+  }
+
+  .home_hero-gallery,
+  .home_hero-gallery picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .home_slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    inset: 0;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  body {
+    overflow-x: clip;
+  }
+
+  .home_hero {
+    height: auto;
+    min-height: 100svh;
+    margin-bottom: 3rem;
+    padding-top: clamp(5.5rem, 18vw, 7rem);
+    padding-bottom: 2rem;
+    justify-content: flex-start;
+  }
+
+  .home_hero-wrap-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-height: calc(100svh - clamp(7.5rem, 24vw, 10rem));
+    justify-content: space-between;
+  }
+
+  .home_hero-content {
+    width: 100%;
+  }
+
+  .home_hero-inner {
+    gap: 1.5rem;
+    max-width: none;
+  }
+
+  .home_hero .display_xl-class {
+    font-size: clamp(2.8rem, 14vw, 4.25rem);
+    line-height: 0.9;
+    text-wrap: balance;
+  }
+
+  .home_hero-text {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.875rem 0.75rem;
+  }
+
+  .home_hero-content-caption {
+    min-width: 0;
+  }
+
+  .home_hero .caption_small {
+    font-size: 0.72rem;
+    line-height: 1.3;
+    letter-spacing: 0.04em;
+  }
+
+  .home_hero-snippet {
+    width: min(100%, 18rem);
+    margin: 0;
+    margin-left: auto;
+    position: relative;
+    inset: auto;
+    text-align: left;
+  }
+
+  .home_hero-slider {
+    height: 100%;
+  }
+
+  .swiper.is-home-hero,
+  .swiper-wrapper.is-home-hero,
+  .swiper-slide.is-home-hero {
+    height: 100%;
+  }
+
+  .swiper-wrapper.is-home-hero {
+    transform: none !important;
+  }
+
+  .swiper-slide.is-home-hero:not(:first-child) {
+    display: none;
+  }
+
+  .home_hero-gallery picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .home_slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    inset: 0;
+  }
+
+  .footer_base-content {
+    margin-bottom: 2.5rem;
+  }
+
+  .footer_main {
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .footer_social {
+    width: 100%;
+    max-width: none;
+    margin-right: 0;
+  }
+
+  .footer_social-links {
+    flex-wrap: wrap;
+  }
+
+  .footer_base-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer_base-copyright {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .home_hero {
+    margin-bottom: 2.5rem;
+  }
+
+  .home_hero-wrap-inner {
+    min-height: calc(100svh - 7rem);
+  }
+
+  .home_hero-text {
+    grid-template-columns: 1fr;
+  }
+
+  .home_hero-snippet {
+    width: 100%;
+  }
+}
+
 /* ===================== Global Webflow Overrides ===================== */
 :root {
   --currentcolor: currentColor;

@@ -31,12 +31,12 @@ export default function Navbar() {
               <a href="#" className="nav_link w-inline-block">
                 <div>Media &amp; Interviews</div>
               </a>
-              <div className="nav_link comma">
+              {/* <div className="nav_link comma">
                 <div>,</div>
-              </div>
-              <a href="#" className="nav_link w-inline-block">
+              </div> */}
+              {/* <a href="#" className="nav_link w-inline-block">
                 <div>Learning Hub</div>
-              </a>
+              </a> */}
               <div className="nav_link comma">
                 <div>,</div>
               </div>
@@ -48,9 +48,9 @@ export default function Navbar() {
               <a href="#" className="nav_cta w-inline-block">
                 <div className="p_xlarge mobile-nav-cta">Financial Educator</div>
               </a>
-              <a href="#" className="nav_cta w-inline-block">
+              {/* <a href="#" className="nav_cta w-inline-block">
                 <div className="p_xlarge mobile-nav-cta">Gold &amp; Long-Term Investor</div>
-              </a>
+              </a> */}
             </div>
           </nav>
           <div className="nav_menu-icon w-nav-button">

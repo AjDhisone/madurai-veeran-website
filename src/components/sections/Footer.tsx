@@ -1,5 +1,4 @@
 import { YouTubeIcon, LinkedInIcon } from '../icons/SocialIcons';
-import FooterLogo from './FooterLogo';
 
 export default function Footer() {
   return (
@@ -8,9 +7,6 @@ export default function Footer() {
         <div className="container">
           <div className="footer_base-content">
             <div className="footer_main">
-              <a href="#" aria-current="page" className="footer_logo w-inline-block w--current">
-                <FooterLogo />
-              </a>
               <div className="footer_social">
                 <div className="footer_social-text">
                   <p className="p_large uppercase">@maduraiveeran</p>
