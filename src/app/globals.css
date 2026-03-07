@@ -1,26 +1,510 @@
-@import "tailwindcss";
+/* Webflow styles are loaded via webflow.css */
+/* Remove Tailwind to avoid conflicting resets */
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar-investment-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 18rem;
+}
+
+.navbar-investment-track {
+  display: inline-block;
+  animation: investmentTicker 10s linear infinite;
+  will-change: transform;
+}
+
+@keyframes investmentTicker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.hero-name-animated {
+  animation: heroNameFloat 4s ease-in-out infinite;
+}
+
+@keyframes nastyScrollReveal {
+  from {
+    opacity: 0;
+    transform: translateY(2rem) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.home_nasty .nasty_scroll-text {
+  will-change: transform, opacity;
+}
+
+@supports (animation-timeline: view()) {
+  .home_nasty .nasty_scroll-text {
+    opacity: 0;
+    animation: nastyScrollReveal linear both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 45%;
+  }
+
+  .home_nasty .nasty_scroll-line2 {
+    animation-range: entry 24% cover 50%;
+  }
+
+  .home_nasty .nasty_scroll-line3 {
+    animation-range: entry 28% cover 55%;
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .home_nasty .nasty_scroll-text {
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .home_nasty .nasty_sticky {
+    width: 100%;
+    max-width: 50vw;
+  }
+
+  .home_nasty .nasty_sticky-middle {
+    width: 100%;
+    max-width: 50vw;
+  }
+
+  .home_nasty .nasty_sticky-top {
+    width: 100%;
+    max-width: 50vw;
+  }
+}
+
+.home_nasty .nasty_custom-kicker {
+  margin: 0;
+  font-family: Suisse International, sans-serif;
+  width: 100%;
+  font-size: clamp(1.75rem, 2.2vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.home_nasty .nasty_custom-main {
+  margin: 0;
+  font-family: Suisse International, sans-serif;
+  font-size: clamp(3.6rem, 5.5vw, 5.5rem);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.home_nasty .nasty_custom-sub {
+  margin: 0;
+  font-family: Suisse International, sans-serif;
+  font-size: clamp(2.9rem, 4.8vw, 4.5rem);
+  font-weight: 450;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 991px) {
+  .home_nasty .nasty_custom-kicker {
+    font-size: clamp(1.5rem, 6.5vw, 2.2rem);
+  }
+
+  .home_nasty .nasty_custom-main {
+    font-size: clamp(4.8rem, 18vw, 7rem);
+  }
+
+  .home_nasty .nasty_custom-sub {
+    font-size: clamp(2.4rem, 10vw, 4rem);
+  }
+}
+
+/* Hero typography emphasis */
+.home_hero .display_xl-class {
+  font-weight: 900;
+}
+
+.home_hero .caption_small {
+  font-weight: 800;
+}
+
+@keyframes heroNameFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.25rem);
+  }
+}
+
+/* Hide the Webflow page wipe loading animation (requires Webflow JS to dismiss) */
+.page_wipe-wrapper {
+  display: none !important;
+}
+
+/* ===================== Global Webflow Overrides ===================== */
+:root {
+  --currentcolor: currentColor;
+}
+
+/* Links */
+a:hover .arrow0-6 {
+  transform: translateX(0.125rem) translateY(-0.12rem);
+}
+
+/* Nav */
+[data-nav-menu-open] {
+  display: flex !important;
+}
+
+@media screen and (max-width: 767px) {
+  .w-nav-overlay,
+  .navbar_menu {
+    height: 100dvh !important;
+  }
+
+  .w-nav-button.w--open .nav_menu-icon_box {
+    width: 1.75rem;
+  }
+}
+
+/* Rich Text */
+.w-richtext *:first-child {
+  margin-top: 0;
+}
+
+.w-richtext *:last-child {
+  margin-bottom: 0;
+}
+
+.text-rich-inherit * {
+  all: inherit;
+}
+
+/* _____ Cols _____ */
+[class$="_col"],
+[class*="_col "] {
+  padding: var(--inner-padding-desktop);
+}
+
+@media only screen and (max-width: 991px) {
+  [class$="_col"],
+  [class*="_col "] {
+    padding: var(--inner-padding-tablet);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  [class$="_col"],
+  [class*="_col "] {
+    padding: var(--inner-padding-mobile);
+  }
+}
+
+/* Col border */
+[class$="_col"]:first-child,
+[class*="_col "]:first-child {
+  border-right: 1px solid;
+}
+
+@media only screen and (max-width: 767px) {
+  [class$="_col"]:first-child,
+  [class*="_col "]:first-child {
+    border-right: none;
+    border-bottom: 1px solid;
+  }
+}
+
+/* _____ Forms _____ */
+select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+}
+
+/* Dark Form */
+.form-dark .form_field {
+  border-top-color: var(--black);
+  border-right-color: var(--black);
+  border-bottom-color: var(--black);
+  border-left-color: var(--black);
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.form-dark .form_field:active,
+.form-dark .form_field:focus,
+.form-dark .form_field:focus-visible {
+  border-bottom-style: solid;
+  border-bottom-color: var(--white);
+}
+
+.form-dark .dropdown_arrow {
+  color: var(--white);
+}
+
+.form-dark .form_field.is-dropdown {
+  border-bottom-color: var(--white);
+}
+
+/* Small Form */
+.form-small .form_field {
+  font-size: 0.9375rem;
+  min-height: 2.5rem;
+}
+
+.form-small .form_field.is-long {
+  min-height: 5rem;
+}
+
+.form-small .dropdown_arrow {
+  height: 2.5rem;
+}
+
+/* _____ Typography Tweaks _____ */
+.justify-end-text {
+  text-align-last: justify;
+}
+
+[dynamic-text="wrapper"] {
+  display: flex;
+  align-items: left;
+  justify-content: center;
+}
+
+[dynamic-text="text"] {
+  white-space: nowrap;
+}
+
+/* Quote Slider */
+.slider_arrow.is-disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+[homepage="false"] {
+  background-color: white;
+}
+
+[homepage="false"] .navbar_brand-star {
+  width: 0;
+  opacity: 0;
+}
+
+[homepage="false"] .s_logo-path {
+  transform: translate(0px, 0%);
+}
+
+/* Pagination */
+.pagination_page-item.w--current {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+/* Hiding CMS Items */
+@media screen and (max-width: 991px) {
+  .resource_item:nth-child(3) {
+    display: none;
+  }
+}
+
+/* ===== Hero slider image origin points ===== */
+.home_slider-image[origin-point="left"] {
+  object-position: 30% 20%;
+}
+
+.home_slider-image[origin-point="center"] {
+  object-position: 50% 20%;
+}
+
+.home_slider-image[origin-point="right"] {
+  object-position: 70% 20%;
+}
+
+/* ===== Trust grid border rules ===== */
+@media only screen and (min-width: 992px) {
+  .trust_grid-item:last-child {
+    border-right: none;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .trust_grid-item:nth-child(even) {
+    border-right: none;
+  }
+}
+
+/* ===== Swiper quote slide spacing ===== */
+.swiper-slide.home-quotes:last-child {
+  margin-right: 0;
+}
+
+/* ===== Drip Form Styles ===== */
+.drip-form form > div br,
+[data-drip-attribute="headline"],
+[data-drip-attribute="description"] {
+  display: none;
+}
+
+.drip-form form {
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 1.5rem;
+  flex-direction: column;
+  display: flex;
+}
+
+.drip-form form label {
+  color: var(--grey-04);
+  letter-spacing: 0.025rem;
+  text-transform: uppercase;
+  font-family: Suisse International, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.drip-form form input {
+  min-height: 3rem;
+  border: 1px none var(--white);
+  background-color: var(--light);
+  color: var(--black);
+  margin-bottom: 0;
+  padding: 0.5rem 0.75rem;
+  font-family: Suisse International, sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  width: 100%;
+}
+
+.drip-form form input:focus {
+  border-bottom-style: solid;
+  border-bottom-color: var(--white);
+}
+
+.drip-form form input:focus-visible {
+  border-bottom-style: solid;
+  border-bottom-color: var(--white);
+  outline: none;
+}
+
+.drip-form.is-dark form input {
+  border-top-color: var(--black);
+  border-right-color: var(--black);
+  border-bottom-color: var(--black);
+  border-left-color: var(--black);
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.drip-form form input[type="submit"] {
+  grid-column-gap: 0.75rem;
+  grid-row-gap: 0.75rem;
+  background-color: var(--black);
+  color: var(--white);
+  padding: 1rem 1.25rem;
+  display: flex;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.drip-form.is-dark form input[type="submit"] {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.drip-form.is-dark form input[type="submit"]:hover {
+  background-color: var(--light);
+}
+
+/* ===== Layout inline styles (from layout.tsx) ===== */
+.page_wipe-wrapper {
+  display: flex;
+}
+
+.w-editor .page_wipe-wrapper {
+  display: none !important;
+}
+
+/* Spinning Stars and Star Circle */
+.spinning .inner_star,
+.spinning .circle_star {
+  animation: star-rotate 5s linear infinite;
+}
+
+@keyframes star-rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Spinning BC Icon */
+.bc_icon-wrap.spinning {
+  animation: bc-logo-rotate 8s linear infinite;
+}
+
+@keyframes bc-logo-rotate {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+/* Marquee Scroller */
+@keyframes marquee-horizontal {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+[marquee-parent="pause-hover"]:hover [marquee] {
+  animation-play-state: paused;
+}
+
+[marquee] {
+  animation: marquee-horizontal 60s linear infinite;
+}
+
+[marquee="reverse"] {
+  animation-direction: reverse;
+}
+
+[marquee="true"] img,
+[marquee="reverse"] img {
+  -webkit-transform: translateZ(0);
+}
+
+/* Podcast Temp Hide */
+[data-podcast] {
+  display: none;
+}
+
+/* Nav dropdown */
+.nav_dropdown-list.w--open {
+  background-color: rgba(255, 255, 255, 0);
 }
