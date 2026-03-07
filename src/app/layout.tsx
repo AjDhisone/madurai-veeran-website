@@ -39,17 +39,6 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
 
-        {/* Favicon & Apple Touch Icon */}
-        <link
-          href="https://cdn.prod.website-files.com/65aa9744cb3474ba90a7bc54/669535831281eb1d0bea8d8e_favicon.svg"
-          rel="shortcut icon"
-          type="image/x-icon"
-        />
-        <link
-          href="https://cdn.prod.website-files.com/65aa9744cb3474ba90a7bc54/669535888cd861f91a57123d_webclip.svg"
-          rel="apple-touch-icon"
-        />
-
         {/* Swiper CSS */}
         <link
           rel="stylesheet"
