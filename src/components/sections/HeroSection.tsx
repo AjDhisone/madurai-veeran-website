@@ -1,7 +1,5 @@
-import ConsultationForm from '../ConsultationForm';
-
-const heroImages = [
-  { src: '/imgs/madurai%202.jpg', mobileSrc: '/imgs/m%20mobile.jpg', origin: 'center' },
+const heroSlideImages = [
+  { src: '/imgs/madurai-2.jpg', mobileSrc: '/imgs/m-mobile.jpg', origin: 'center' },
 ];
 
 export default function HeroSection() {
@@ -33,18 +31,18 @@ export default function HeroSection() {
         <div className="home_hero-swiper-sticky">
           <div className="swiper is-home-hero w-dyn-list">
             <div role="list" className="swiper-wrapper is-home-hero w-dyn-items">
-              {heroImages.map((img, i) => (
-                <div key={i} role="listitem" className="swiper-slide is-home-hero w-dyn-item">
+              {heroSlideImages.map((heroImage, imageIndex) => (
+                <div key={imageIndex} role="listitem" className="swiper-slide is-home-hero w-dyn-item">
                   <div className="home_hero-gallery">
                     <picture>
-                      {img.mobileSrc ? (
-                        <source media="(max-width: 767px)" srcSet={img.mobileSrc} />
+                      {heroImage.mobileSrc ? (
+                        <source media="(max-width: 767px)" srcSet={heroImage.mobileSrc} />
                       ) : null}
                       <img
                         className="home_slider-image"
-                        src={img.src}
+                        src={heroImage.src}
                         data-swiper-parallax-scale="1.2"
-                        origin-point={img.origin}
+                        origin-point={heroImage.origin}
                         alt=""
                         data-swiper-parallax-x="30%"
                         loading="eager"
@@ -57,8 +55,6 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Consultation Popup (variant 2 - inside slider) */}
-        <ConsultationForm variant={2} />
       </div>
     </div>
   );

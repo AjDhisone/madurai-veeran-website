@@ -23,7 +23,7 @@ export default function SocialSection() {
         <div image-parallax="outer" className="social_bg-image">
           <div image-parallax="inner" className="social_bg_inner">
             <img
-              src="/imgs/m follow.png"
+              src="/imgs/m-follow.png"
               loading="eager"
               alt="Portrait for social follow section"
               className="img_cover-top"

@@ -1,13 +1,13 @@
 import StarIcon from '../icons/StarIcon';
 
-export default function BookSection() {
+export default function ReachStatsSection() {
   return (
     <div className="home_book">
-      <div className="home_book-snippet">
+      {/* <div className="home_book-snippet">
         <div className="caption_small">
           Audience, attention, and reach at scale.
         </div>
-      </div>
+      </div> */}
       <div className="container">
         <div className="home_book-inner">
           <div className="home_book-top home_book-top--stats">
@@ -29,15 +29,15 @@ export default function BookSection() {
           </div>
 
           <div className="home_book-bottom">
-            <BookTextColumn
-              className="home_book-invest"
-              text="Invest"
-              count={5}
+            <RepeatingTextColumn
+              containerClassName="home_book-invest"
+              label="Invest"
+              repeatCount={5}
             />
-            <BookTextColumn
-              className="home_book-followers"
-              text="Followers"
-              count={5}
+            <RepeatingTextColumn
+              containerClassName="home_book-followers"
+              label="now"
+              repeatCount={5}
             />
           </div>
 
@@ -55,20 +55,20 @@ export default function BookSection() {
   );
 }
 
-function BookTextColumn({
-  className,
-  text,
-  count,
+function RepeatingTextColumn({
+  containerClassName,
+  label,
+  repeatCount,
 }: {
-  className: string;
-  text: string;
-  count: number;
+  containerClassName: string;
+  label: string;
+  repeatCount: number;
 }) {
   return (
-    <div stagger-fade="trigger" className={className}>
-      {Array.from({ length: count }, (_, i) => (
-        <div key={i} stagger-fade="item" className="display_xl-class home_book-repeat-text">
-          {text}
+    <div stagger-fade="trigger" className={containerClassName}>
+      {Array.from({ length: repeatCount }, (_, index) => (
+        <div key={index} stagger-fade="item" className="display_xl-class home_book-repeat-text">
+          {label}
         </div>
       ))}
     </div>

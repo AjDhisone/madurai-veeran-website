@@ -1,7 +1,7 @@
-const scrollImages = [
+const portfolioJourneyImages = [
   {
     className: 'nasty_scroll-image-first',
-    src: '/imgs/mechanic%20shop.png',
+    src: '/imgs/mechanic-shop.png',
     srcSet: '',
     imgClass: 'nasty_scroll-image-first_img',
     nodeId: 'w-node-c9830914-cb2d-8917-ef41-b7c2dc93fb48-90a7bc5a',
@@ -20,7 +20,7 @@ const scrollImages = [
   },
 ];
 
-export default function NastyGalSection() {
+export default function PortfolioJourneySection() {
   return (
     <div className="home_nasty">
       <div className="container">
@@ -73,19 +73,19 @@ export default function NastyGalSection() {
             </div>
           </div>
           <div className="nasty_scroll">
-            {scrollImages.map((img, i) => (
+            {portfolioJourneyImages.map((image, index) => (
               <div
-                key={i}
-                {...(img.nodeId ? { id: img.nodeId } : {})}
-                className={img.className}
+                key={index}
+                {...(image.nodeId ? { id: image.nodeId } : {})}
+                className={image.className}
               >
                 <img
-                  src={img.src}
+                  src={image.src}
                   loading="eager"
                   sizes="(max-width: 1140px) 100vw, 1140px"
-                  srcSet={img.srcSet}
+                  srcSet={image.srcSet}
                   alt=""
-                  className={img.imgClass}
+                  className={image.imgClass}
                 />
               </div>
             ))}
@@ -93,15 +93,5 @@ export default function NastyGalSection() {
         </div>
       </div>
     </div>
-  );
-}
-
-function NastyGalLogo() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 644 239" fill="none" className="logo_wrap">
-      <g style={{ mixBlendMode: 'difference' }}>
-        <path d="M82.2036 130.398V134.52L82.2019 135.043V238.023H60.0457V187.052C59.7498 188.033 59.4349 188.995 59.1009 189.939C53.1829 206.651 39.3469 221.938 24.0338 222.644C9.53574 223.312 0.000101089 210.32 0.000101089 196.103C0.000101089 181.003 8.35129 172.062 18.3316 161.206C21.2816 157.997 24.3905 154.615 27.4783 150.859C18.1844 157.459 12.2686 162.872 8.35129 169.1C3.00217 177.669 0.000101089 185.866 0.000101089 196.103C0.000101089 210.32 9.53574 223.312 24.0338 222.644C39.3469 221.938 53.1829 206.651 59.1009 189.939C64.0756 175.981 64.0756 157.643 82.2036 130.398Z" fill="currentColor" />
-      </g>
-    </svg>
   );
 }

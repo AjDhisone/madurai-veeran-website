@@ -22,16 +22,6 @@
 			"options": {
 				"cwd": "${workspaceFolder}"
 			}
-		},
-		{
-			"label": "Start Next dev server",
-			"type": "shell",
-			"command": "npm",
-			"args": [
-				"run",
-				"dev"
-			],
-			"isBackground": true
 		}
 	]
 }
