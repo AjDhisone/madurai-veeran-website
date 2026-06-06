@@ -1,0 +1,35 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ─── Settings (read-only for clients) ───
+    match /settings/{document} {
+      allow read: if true;
+      allow write: if false; // Admin SDK only
+    }
+
+    // ─── Availability (read-only for clients) ───
+    match /availability/{document} {
+      allow read: if true;
+      allow write: if false; // Admin SDK only (via API routes)
+    }
+
+    // ─── Blocked Dates ───
+    match /blockedDates/{document} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // ─── Bookings (no client access — server only) ───
+    match /bookings/{document} {
+      allow read: if true;  // Admin dashboard reads via client SDK
+      allow write: if false; // Admin SDK only (via API routes)
+    }
+
+    // ─── Deny everything else ───
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

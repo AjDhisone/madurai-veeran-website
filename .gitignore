@@ -43,3 +43,8 @@ next-env.d.ts
 # editor
 .vscode/
 .idea/
+
+# Firebase Service Account Keys
+*service-account.json
+firebase-key.json
+

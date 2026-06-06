@@ -1,13 +1,10 @@
 import PageWipeLoader from '@/components/PageWipeLoader';
 import Navbar from '@/components/Navbar';
-import ConsultationSection from '@/components/ConsultationSection';
 import {
   HeroSection,
   PressSection,
   PortfolioJourneySection,
-  ReachStatsSection,
   AudienceImpactSection,
-  SocialSection,
   Footer,
 } from '@/components/sections';
 
@@ -20,12 +17,9 @@ export default function Home() {
 
         <div className="content_wrapper">
           <HeroSection />
-          <ConsultationSection />
           <PressSection />
           <PortfolioJourneySection />
-          <ReachStatsSection />
           <AudienceImpactSection />
-          <SocialSection />
           <Footer />
         </div>
       </div>

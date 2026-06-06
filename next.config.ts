@@ -1,9 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* Static export output for CDN/static hosts like Cloudflare Pages */
-  output: 'export',
-
   /* Disable the X-Powered-By header for security */
   poweredByHeader: false,
 
@@ -13,7 +10,7 @@ const nextConfig: NextConfig = {
   /* React strict mode for catching potential issues */
   reactStrictMode: true,
 
-  /* Required when using static export with Next image optimization disabled */
+  /* Image optimization — keep unoptimized for now */
   images: {
     unoptimized: true,
   },

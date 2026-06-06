@@ -2,7 +2,7 @@ import StarIcon from '../icons/StarIcon';
 
 const pressGifs = ['/imgs/m-giff.gif', '/imgs/m2-giff.gif'];
 
-function MarqueeRow({ text, reverse = false }: { text: string; reverse?: boolean }) {
+export function MarqueeRow({ text, reverse = false }: { text: string; reverse?: boolean }) {
   const marqueeAttr = reverse ? 'reverse' : 'true';
   const items = Array.from({ length: 7 });
 
@@ -35,8 +35,6 @@ function PressGif({ src }: { src: string }) {
 export default function PressSection() {
   return (
     <div className="home_press">
-      <MarqueeRow text="Financial Literacy for Tamil Families • Smart Investing • Long-Term Wealth Building" />
-
       <div className="container">
         <div stagger-fade="trigger" className="home_press-inner is-gif-only">
           {pressGifs.map((src) => (
