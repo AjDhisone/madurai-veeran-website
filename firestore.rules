@@ -27,6 +27,12 @@ service cloud.firestore {
       allow write: if false; // Admin SDK only (via API routes)
     }
 
+    // ─── Form Submissions ───
+    match /form_submissions/{document} {
+      allow create: if true;
+      allow read, update, delete: if false;
+    }
+
     // ─── Deny everything else ───
     match /{document=**} {
       allow read, write: if false;

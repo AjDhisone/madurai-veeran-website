@@ -28,9 +28,12 @@ export default function Footer() {
             </div>
           </div>
           <div className="footer_base-other">
-            <div className="footer_base-links">
-              <a href="#" className="p_small text-white">Terms &amp; Conditions</a>
-              <a href="#" className="p_small text-white">Privacy Policy</a>
+            <div className="footer_base-links" style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+              <a href="/terms-and-conditions" className="p_small text-white">Terms &amp; Conditions</a>
+              <a href="/privacy-policy" className="p_small text-white">Privacy Policy</a>
+              <a href="/refund-policy" className="p_small text-white">Refund Policy</a>
+              <a href="/disclaimer" className="p_small text-white">Disclaimer</a>
+              <a href="/contact" className="p_small text-white">Contact</a>
             </div>
             <div className="footer_base-copyright">
               <p className="p_small">&copy; 2026 Madurai Veeran. All rights reserved.</p>
